@@ -26,6 +26,7 @@ The following advanced features are still in progress:
 These features will be fully implemented in future updates.
 
 ## Installation and Setup
+# **Clone this repo then follow the NEXT STEPS**
 
 ### Python Setup:
 1. Install Python (version 3.7 or higher).
