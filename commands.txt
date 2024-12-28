@@ -1,0 +1,8 @@
+# Basic scraping
+scrape "https://en.wikipedia.org/wiki/Main_Page" into main_page.json
+
+# Scraping with selector
+scrape "https://en.wikipedia.org/wiki/Main_Page" select ".toc" into toc.json
+
+# Scraping with advanced options
+scrape "https://example.com" into example.json with_user_agent "My User Agent" with_retries 3

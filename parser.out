@@ -1,0 +1,509 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> scrape_statement
+Rule 2     statement -> select_statement
+Rule 3     statement -> api_statement
+Rule 4     scrape_statement -> SCRAPE URL INTO output_file options
+Rule 5     select_statement -> SCRAPE URL SELECT selector INTO output_file options
+Rule 6     api_statement -> SCRAPE URL API INTO output_file options
+Rule 7     output_file -> JSON_FILE
+Rule 8     output_file -> CSV_FILE
+Rule 9     output_file -> XML_FILE
+Rule 10    selector -> URL
+Rule 11    options -> option options
+Rule 12    options -> empty
+Rule 13    option -> USER_AGENT
+Rule 14    option -> DELAY
+Rule 15    option -> RETRIES
+Rule 16    option -> PROXY
+Rule 17    option -> AUTH
+Rule 18    option -> HEADER
+Rule 19    option -> VALIDATE
+Rule 20    option -> FILTER
+Rule 21    empty -> <empty>
+
+Terminals, with rules where they appear
+
+API                  : 6
+AUTH                 : 17
+CSV_FILE             : 8
+DELAY                : 14
+FILTER               : 20
+HEADER               : 18
+INTO                 : 4 5 6
+JSON_FILE            : 7
+PROXY                : 16
+RETRIES              : 15
+SCRAPE               : 4 5 6
+SELECT               : 5
+URL                  : 4 5 6 10
+USER_AGENT           : 13
+VALIDATE             : 19
+XML_FILE             : 9
+error                : 
+
+Nonterminals, with rules where they appear
+
+api_statement        : 3
+empty                : 12
+option               : 11
+options              : 4 5 6 11
+output_file          : 4 5 6
+scrape_statement     : 1
+select_statement     : 2
+selector             : 5
+statement            : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . scrape_statement
+    (2) statement -> . select_statement
+    (3) statement -> . api_statement
+    (4) scrape_statement -> . SCRAPE URL INTO output_file options
+    (5) select_statement -> . SCRAPE URL SELECT selector INTO output_file options
+    (6) api_statement -> . SCRAPE URL API INTO output_file options
+
+    SCRAPE          shift and go to state 5
+
+    statement                      shift and go to state 1
+    scrape_statement               shift and go to state 2
+    select_statement               shift and go to state 3
+    api_statement                  shift and go to state 4
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> scrape_statement .
+
+    $end            reduce using rule 1 (statement -> scrape_statement .)
+
+
+state 3
+
+    (2) statement -> select_statement .
+
+    $end            reduce using rule 2 (statement -> select_statement .)
+
+
+state 4
+
+    (3) statement -> api_statement .
+
+    $end            reduce using rule 3 (statement -> api_statement .)
+
+
+state 5
+
+    (4) scrape_statement -> SCRAPE . URL INTO output_file options
+    (5) select_statement -> SCRAPE . URL SELECT selector INTO output_file options
+    (6) api_statement -> SCRAPE . URL API INTO output_file options
+
+    URL             shift and go to state 6
+
+
+state 6
+
+    (4) scrape_statement -> SCRAPE URL . INTO output_file options
+    (5) select_statement -> SCRAPE URL . SELECT selector INTO output_file options
+    (6) api_statement -> SCRAPE URL . API INTO output_file options
+
+    INTO            shift and go to state 7
+    SELECT          shift and go to state 8
+    API             shift and go to state 9
+
+
+state 7
+
+    (4) scrape_statement -> SCRAPE URL INTO . output_file options
+    (7) output_file -> . JSON_FILE
+    (8) output_file -> . CSV_FILE
+    (9) output_file -> . XML_FILE
+
+    JSON_FILE       shift and go to state 11
+    CSV_FILE        shift and go to state 12
+    XML_FILE        shift and go to state 13
+
+    output_file                    shift and go to state 10
+
+state 8
+
+    (5) select_statement -> SCRAPE URL SELECT . selector INTO output_file options
+    (10) selector -> . URL
+
+    URL             shift and go to state 14
+
+    selector                       shift and go to state 15
+
+state 9
+
+    (6) api_statement -> SCRAPE URL API . INTO output_file options
+
+    INTO            shift and go to state 16
+
+
+state 10
+
+    (4) scrape_statement -> SCRAPE URL INTO output_file . options
+    (11) options -> . option options
+    (12) options -> . empty
+    (13) option -> . USER_AGENT
+    (14) option -> . DELAY
+    (15) option -> . RETRIES
+    (16) option -> . PROXY
+    (17) option -> . AUTH
+    (18) option -> . HEADER
+    (19) option -> . VALIDATE
+    (20) option -> . FILTER
+    (21) empty -> .
+
+    USER_AGENT      shift and go to state 20
+    DELAY           shift and go to state 21
+    RETRIES         shift and go to state 22
+    PROXY           shift and go to state 23
+    AUTH            shift and go to state 24
+    HEADER          shift and go to state 25
+    VALIDATE        shift and go to state 26
+    FILTER          shift and go to state 27
+    $end            reduce using rule 21 (empty -> .)
+
+    options                        shift and go to state 17
+    option                         shift and go to state 18
+    empty                          shift and go to state 19
+
+state 11
+
+    (7) output_file -> JSON_FILE .
+
+    USER_AGENT      reduce using rule 7 (output_file -> JSON_FILE .)
+    DELAY           reduce using rule 7 (output_file -> JSON_FILE .)
+    RETRIES         reduce using rule 7 (output_file -> JSON_FILE .)
+    PROXY           reduce using rule 7 (output_file -> JSON_FILE .)
+    AUTH            reduce using rule 7 (output_file -> JSON_FILE .)
+    HEADER          reduce using rule 7 (output_file -> JSON_FILE .)
+    VALIDATE        reduce using rule 7 (output_file -> JSON_FILE .)
+    FILTER          reduce using rule 7 (output_file -> JSON_FILE .)
+    $end            reduce using rule 7 (output_file -> JSON_FILE .)
+
+
+state 12
+
+    (8) output_file -> CSV_FILE .
+
+    USER_AGENT      reduce using rule 8 (output_file -> CSV_FILE .)
+    DELAY           reduce using rule 8 (output_file -> CSV_FILE .)
+    RETRIES         reduce using rule 8 (output_file -> CSV_FILE .)
+    PROXY           reduce using rule 8 (output_file -> CSV_FILE .)
+    AUTH            reduce using rule 8 (output_file -> CSV_FILE .)
+    HEADER          reduce using rule 8 (output_file -> CSV_FILE .)
+    VALIDATE        reduce using rule 8 (output_file -> CSV_FILE .)
+    FILTER          reduce using rule 8 (output_file -> CSV_FILE .)
+    $end            reduce using rule 8 (output_file -> CSV_FILE .)
+
+
+state 13
+
+    (9) output_file -> XML_FILE .
+
+    USER_AGENT      reduce using rule 9 (output_file -> XML_FILE .)
+    DELAY           reduce using rule 9 (output_file -> XML_FILE .)
+    RETRIES         reduce using rule 9 (output_file -> XML_FILE .)
+    PROXY           reduce using rule 9 (output_file -> XML_FILE .)
+    AUTH            reduce using rule 9 (output_file -> XML_FILE .)
+    HEADER          reduce using rule 9 (output_file -> XML_FILE .)
+    VALIDATE        reduce using rule 9 (output_file -> XML_FILE .)
+    FILTER          reduce using rule 9 (output_file -> XML_FILE .)
+    $end            reduce using rule 9 (output_file -> XML_FILE .)
+
+
+state 14
+
+    (10) selector -> URL .
+
+    INTO            reduce using rule 10 (selector -> URL .)
+
+
+state 15
+
+    (5) select_statement -> SCRAPE URL SELECT selector . INTO output_file options
+
+    INTO            shift and go to state 28
+
+
+state 16
+
+    (6) api_statement -> SCRAPE URL API INTO . output_file options
+    (7) output_file -> . JSON_FILE
+    (8) output_file -> . CSV_FILE
+    (9) output_file -> . XML_FILE
+
+    JSON_FILE       shift and go to state 11
+    CSV_FILE        shift and go to state 12
+    XML_FILE        shift and go to state 13
+
+    output_file                    shift and go to state 29
+
+state 17
+
+    (4) scrape_statement -> SCRAPE URL INTO output_file options .
+
+    $end            reduce using rule 4 (scrape_statement -> SCRAPE URL INTO output_file options .)
+
+
+state 18
+
+    (11) options -> option . options
+    (11) options -> . option options
+    (12) options -> . empty
+    (13) option -> . USER_AGENT
+    (14) option -> . DELAY
+    (15) option -> . RETRIES
+    (16) option -> . PROXY
+    (17) option -> . AUTH
+    (18) option -> . HEADER
+    (19) option -> . VALIDATE
+    (20) option -> . FILTER
+    (21) empty -> .
+
+    USER_AGENT      shift and go to state 20
+    DELAY           shift and go to state 21
+    RETRIES         shift and go to state 22
+    PROXY           shift and go to state 23
+    AUTH            shift and go to state 24
+    HEADER          shift and go to state 25
+    VALIDATE        shift and go to state 26
+    FILTER          shift and go to state 27
+    $end            reduce using rule 21 (empty -> .)
+
+    option                         shift and go to state 18
+    options                        shift and go to state 30
+    empty                          shift and go to state 19
+
+state 19
+
+    (12) options -> empty .
+
+    $end            reduce using rule 12 (options -> empty .)
+
+
+state 20
+
+    (13) option -> USER_AGENT .
+
+    USER_AGENT      reduce using rule 13 (option -> USER_AGENT .)
+    DELAY           reduce using rule 13 (option -> USER_AGENT .)
+    RETRIES         reduce using rule 13 (option -> USER_AGENT .)
+    PROXY           reduce using rule 13 (option -> USER_AGENT .)
+    AUTH            reduce using rule 13 (option -> USER_AGENT .)
+    HEADER          reduce using rule 13 (option -> USER_AGENT .)
+    VALIDATE        reduce using rule 13 (option -> USER_AGENT .)
+    FILTER          reduce using rule 13 (option -> USER_AGENT .)
+    $end            reduce using rule 13 (option -> USER_AGENT .)
+
+
+state 21
+
+    (14) option -> DELAY .
+
+    USER_AGENT      reduce using rule 14 (option -> DELAY .)
+    DELAY           reduce using rule 14 (option -> DELAY .)
+    RETRIES         reduce using rule 14 (option -> DELAY .)
+    PROXY           reduce using rule 14 (option -> DELAY .)
+    AUTH            reduce using rule 14 (option -> DELAY .)
+    HEADER          reduce using rule 14 (option -> DELAY .)
+    VALIDATE        reduce using rule 14 (option -> DELAY .)
+    FILTER          reduce using rule 14 (option -> DELAY .)
+    $end            reduce using rule 14 (option -> DELAY .)
+
+
+state 22
+
+    (15) option -> RETRIES .
+
+    USER_AGENT      reduce using rule 15 (option -> RETRIES .)
+    DELAY           reduce using rule 15 (option -> RETRIES .)
+    RETRIES         reduce using rule 15 (option -> RETRIES .)
+    PROXY           reduce using rule 15 (option -> RETRIES .)
+    AUTH            reduce using rule 15 (option -> RETRIES .)
+    HEADER          reduce using rule 15 (option -> RETRIES .)
+    VALIDATE        reduce using rule 15 (option -> RETRIES .)
+    FILTER          reduce using rule 15 (option -> RETRIES .)
+    $end            reduce using rule 15 (option -> RETRIES .)
+
+
+state 23
+
+    (16) option -> PROXY .
+
+    USER_AGENT      reduce using rule 16 (option -> PROXY .)
+    DELAY           reduce using rule 16 (option -> PROXY .)
+    RETRIES         reduce using rule 16 (option -> PROXY .)
+    PROXY           reduce using rule 16 (option -> PROXY .)
+    AUTH            reduce using rule 16 (option -> PROXY .)
+    HEADER          reduce using rule 16 (option -> PROXY .)
+    VALIDATE        reduce using rule 16 (option -> PROXY .)
+    FILTER          reduce using rule 16 (option -> PROXY .)
+    $end            reduce using rule 16 (option -> PROXY .)
+
+
+state 24
+
+    (17) option -> AUTH .
+
+    USER_AGENT      reduce using rule 17 (option -> AUTH .)
+    DELAY           reduce using rule 17 (option -> AUTH .)
+    RETRIES         reduce using rule 17 (option -> AUTH .)
+    PROXY           reduce using rule 17 (option -> AUTH .)
+    AUTH            reduce using rule 17 (option -> AUTH .)
+    HEADER          reduce using rule 17 (option -> AUTH .)
+    VALIDATE        reduce using rule 17 (option -> AUTH .)
+    FILTER          reduce using rule 17 (option -> AUTH .)
+    $end            reduce using rule 17 (option -> AUTH .)
+
+
+state 25
+
+    (18) option -> HEADER .
+
+    USER_AGENT      reduce using rule 18 (option -> HEADER .)
+    DELAY           reduce using rule 18 (option -> HEADER .)
+    RETRIES         reduce using rule 18 (option -> HEADER .)
+    PROXY           reduce using rule 18 (option -> HEADER .)
+    AUTH            reduce using rule 18 (option -> HEADER .)
+    HEADER          reduce using rule 18 (option -> HEADER .)
+    VALIDATE        reduce using rule 18 (option -> HEADER .)
+    FILTER          reduce using rule 18 (option -> HEADER .)
+    $end            reduce using rule 18 (option -> HEADER .)
+
+
+state 26
+
+    (19) option -> VALIDATE .
+
+    USER_AGENT      reduce using rule 19 (option -> VALIDATE .)
+    DELAY           reduce using rule 19 (option -> VALIDATE .)
+    RETRIES         reduce using rule 19 (option -> VALIDATE .)
+    PROXY           reduce using rule 19 (option -> VALIDATE .)
+    AUTH            reduce using rule 19 (option -> VALIDATE .)
+    HEADER          reduce using rule 19 (option -> VALIDATE .)
+    VALIDATE        reduce using rule 19 (option -> VALIDATE .)
+    FILTER          reduce using rule 19 (option -> VALIDATE .)
+    $end            reduce using rule 19 (option -> VALIDATE .)
+
+
+state 27
+
+    (20) option -> FILTER .
+
+    USER_AGENT      reduce using rule 20 (option -> FILTER .)
+    DELAY           reduce using rule 20 (option -> FILTER .)
+    RETRIES         reduce using rule 20 (option -> FILTER .)
+    PROXY           reduce using rule 20 (option -> FILTER .)
+    AUTH            reduce using rule 20 (option -> FILTER .)
+    HEADER          reduce using rule 20 (option -> FILTER .)
+    VALIDATE        reduce using rule 20 (option -> FILTER .)
+    FILTER          reduce using rule 20 (option -> FILTER .)
+    $end            reduce using rule 20 (option -> FILTER .)
+
+
+state 28
+
+    (5) select_statement -> SCRAPE URL SELECT selector INTO . output_file options
+    (7) output_file -> . JSON_FILE
+    (8) output_file -> . CSV_FILE
+    (9) output_file -> . XML_FILE
+
+    JSON_FILE       shift and go to state 11
+    CSV_FILE        shift and go to state 12
+    XML_FILE        shift and go to state 13
+
+    output_file                    shift and go to state 31
+
+state 29
+
+    (6) api_statement -> SCRAPE URL API INTO output_file . options
+    (11) options -> . option options
+    (12) options -> . empty
+    (13) option -> . USER_AGENT
+    (14) option -> . DELAY
+    (15) option -> . RETRIES
+    (16) option -> . PROXY
+    (17) option -> . AUTH
+    (18) option -> . HEADER
+    (19) option -> . VALIDATE
+    (20) option -> . FILTER
+    (21) empty -> .
+
+    USER_AGENT      shift and go to state 20
+    DELAY           shift and go to state 21
+    RETRIES         shift and go to state 22
+    PROXY           shift and go to state 23
+    AUTH            shift and go to state 24
+    HEADER          shift and go to state 25
+    VALIDATE        shift and go to state 26
+    FILTER          shift and go to state 27
+    $end            reduce using rule 21 (empty -> .)
+
+    options                        shift and go to state 32
+    option                         shift and go to state 18
+    empty                          shift and go to state 19
+
+state 30
+
+    (11) options -> option options .
+
+    $end            reduce using rule 11 (options -> option options .)
+
+
+state 31
+
+    (5) select_statement -> SCRAPE URL SELECT selector INTO output_file . options
+    (11) options -> . option options
+    (12) options -> . empty
+    (13) option -> . USER_AGENT
+    (14) option -> . DELAY
+    (15) option -> . RETRIES
+    (16) option -> . PROXY
+    (17) option -> . AUTH
+    (18) option -> . HEADER
+    (19) option -> . VALIDATE
+    (20) option -> . FILTER
+    (21) empty -> .
+
+    USER_AGENT      shift and go to state 20
+    DELAY           shift and go to state 21
+    RETRIES         shift and go to state 22
+    PROXY           shift and go to state 23
+    AUTH            shift and go to state 24
+    HEADER          shift and go to state 25
+    VALIDATE        shift and go to state 26
+    FILTER          shift and go to state 27
+    $end            reduce using rule 21 (empty -> .)
+
+    options                        shift and go to state 33
+    option                         shift and go to state 18
+    empty                          shift and go to state 19
+
+state 32
+
+    (6) api_statement -> SCRAPE URL API INTO output_file options .
+
+    $end            reduce using rule 6 (api_statement -> SCRAPE URL API INTO output_file options .)
+
+
+state 33
+
+    (5) select_statement -> SCRAPE URL SELECT selector INTO output_file options .
+
+    $end            reduce using rule 5 (select_statement -> SCRAPE URL SELECT selector INTO output_file options .)
+
