@@ -35,6 +35,6 @@ These features will be fully implemented in future updates.
    pip install -r requirements.txt
 
 
-#To use it OPEN
+# To use it OPEN
    ```bash
       console.bat
