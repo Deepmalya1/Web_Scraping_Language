@@ -20,6 +20,8 @@ The following advanced features are still in progress:
 - **`validate fields`**
 - **`filter by`**
 - **`using_api`**
+- **`monitor`**
+- **`parallel`**
 
 These features will be fully implemented in future updates.
 
@@ -31,3 +33,8 @@ These features will be fully implemented in future updates.
 
    ```bash
    pip install -r requirements.txt
+
+
+###To use it OPEN
+   ```bash
+      console.bat
